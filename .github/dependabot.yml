@@ -5,10 +5,14 @@
 
 version: 2
 updates:
-  # Enable version updates for Gradle
-  - package-ecosystem: "gradle"
-    # Look for `libs.versions.toml` in /gradle/
-    directory: "/gradle"
-    # Update frequency
-    schedule:
-      interval: "daily"
+    - package-ecosystem: "gradle"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+      rebase-strategy: "disabled"
+
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+      rebase-strategy: "disabled"
