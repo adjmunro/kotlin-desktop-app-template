@@ -3,7 +3,7 @@ kotlin-language = "2.0.0"
 java-language-target = "21"
 java-language-source = "21"
 
-junit5 = "5.10.3"
+junit5 = "5.11.0"
 kotest = "5.3.0"
 kotlin-symbol-processing = "2.0.0-1.0.24"
 kotlinx-atomicfu = "0.25.0"
