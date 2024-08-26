@@ -1,5 +1,5 @@
 [versions]
-kotlin-language = "2.0.10"
+kotlin-language = "2.0.20"
 java-language-target = "21"
 java-language-source = "21"
 
