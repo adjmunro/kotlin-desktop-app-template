@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_call:
+    inputs:
+      runUnitTests:
+        required: false
+        default: true
+        type: boolean
+
+      buildDesktop:
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  Desktop:
+    if: ${{ inputs.buildDesktop == true }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Set up JVM"
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+      - name: "Compile Desktop"
+        run: ./gradlew build
+      - if: ${{ inputs.runUnitTests == true }}
+        name: "Run Unit Tests"
+        run: ./gradlew test
