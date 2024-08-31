@@ -6,13 +6,30 @@
 version: 2
 updates:
     - package-ecosystem: "gradle"
+      rebase-strategy: "disabled"
       directory: "/"
       schedule:
           interval: "weekly"
-      rebase-strategy: "disabled"
 
-#    - package-ecosystem: "github-actions"
-#      directory: "/"
-#      schedule:
-#          interval: "weekly"
-#      rebase-strategy: "disabled"
+      groups:
+        major:
+          patterns:
+            - "*"
+          update-types:
+            - "major"
+        minor:
+          patterns:
+            - "*"
+          update-types:
+            - "minor"
+        patch:
+          patterns:
+            - "*"
+          update-types:
+            - "patch"
+
+    - package-ecosystem: "github-actions"
+      rebase-strategy: "disabled"
+      directory: "/"
+      schedule:
+          interval: "weekly"
